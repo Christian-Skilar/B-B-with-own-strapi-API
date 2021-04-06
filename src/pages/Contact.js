@@ -7,9 +7,10 @@ function Contact() {
 
 	return (
         <>
-        <Heading heading="Contact Page" />
-
 		<Container>
+
+		<Heading heading="Contact Page" />
+		
 		<Form>
 			<Form.Group controlId="formBasicEmail">
 				<Form.Label>Email address</Form.Label>
