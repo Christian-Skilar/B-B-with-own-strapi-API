@@ -1,0 +1,18 @@
+//
+@font-face {
+	font-family: "adam";
+	src: url(../../font/adam-400.otf);
+	font-style: normal;
+	font-weight: 400;
+}
+
+h1 {
+	color: $light;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+::placeholder {
+	color: $dark !important;
+	opacity: 1;
+}

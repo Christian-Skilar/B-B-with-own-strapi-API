@@ -1,0 +1,28 @@
+.logo {
+	color: $primal-blue;
+	font-size: 40px;
+	text-transform: uppercase;
+	margin: 0 100px;
+	font-family: "adam";
+}
+
+.logo:hover {
+	color: $primal-blue;
+	text-decoration: none;
+}
+
+.nav-links {
+	color: $light;
+	margin: 0 20px;
+	font-family: "adam";
+	font-size: 20px;
+}
+
+.nav-links:hover {
+	color: lightgray;
+	text-decoration: none;
+}
+
+.navbar-dark .navbar-toggler {
+	border-color: transparent;
+}

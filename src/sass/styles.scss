@@ -1,1 +1,10 @@
+@import "./partials/variables";
+@import "./partials/mixin";
 @import "./partials/general";
+@import "./partials/typography";
+@import "./partials/navigation";
+
+@import "./partials/pages/homePage";
+@import "./partials/pages/contactPage";
+@import "./partials/pages/hotelPages";
+@import "./partials/pages/detailPage";

@@ -1,0 +1,51 @@
+.detail-container {
+	background: transparent;
+	height: 100vh;
+}
+
+.detail-card {
+	@include cards;
+	margin: 200px auto;
+	width: 80%;
+	padding: 100px 50px;
+}
+
+// MODAL STYLES -----------------
+
+.modal-content {
+	background: $dark;
+	margin-top: 200px;
+}
+
+.close {
+	color: white;
+	opacity: 1;
+}
+
+.close:hover {
+	color: white;
+}
+
+.modal-title {
+	color: $light;
+	text-transform: uppercase;
+	margin-left: 95px;
+	font-size: 30px;
+}
+
+.date-container {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.input-date {
+	border: none;
+	background: transparent;
+	color: $light;
+	border-bottom: 1px solid $light;
+	width: 100%;
+	margin: 20px auto;
+	text-align: center;
+}

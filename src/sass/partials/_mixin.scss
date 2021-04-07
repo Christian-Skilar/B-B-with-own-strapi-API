@@ -1,0 +1,27 @@
+@mixin Button {
+	display: block;
+	font-family: "adam";
+	text-transform: uppercase;
+	font-size: 25px;
+	color: $primal-green;
+	border: 1px solid $primal-green;
+	background: transparent;
+	width: 200px;
+	margin: 50px auto;
+	transition: 300ms;
+
+	&:hover {
+		color: $light;
+		background: $primal-green;
+		border: 1px solid $primal-green;
+		text-decoration: none !important;
+	}
+}
+
+@mixin cards {
+	border-radius: 5px;
+	background: $dark;
+	opacity: 0.7;
+	color: $light;
+	border: none;
+}

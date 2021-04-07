@@ -1,0 +1,20 @@
+.contact-container {
+	background: black;
+	opacity: 0.7;
+	border-radius: 5px;
+	height: 70vh;
+	width: 60%;
+	margin: 100px auto;
+	padding: 100px 50px;
+}
+
+.form-input {
+	margin: 50px auto;
+	width: 100%;
+	font-size: 17px;
+	border: none;
+}
+
+.btn {
+	@include Button;
+}
