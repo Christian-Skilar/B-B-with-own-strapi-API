@@ -1,22 +1,17 @@
 import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import DatePicker from "react-datepicker";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import ModalComponent from "../layout/Modal";
 import { API } from "../constants/Api";
-import "react-datepicker/dist/react-datepicker.css";
+import { API_URL } from "../constants/Api";
 
 function HotelDetail(props) {
 	console.log(props);
 	const [hotel, sethotel] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const [startDate, setStartDate] = useState(new Date());
+
 
 	let history = useHistory();
 
@@ -49,42 +44,35 @@ function HotelDetail(props) {
 	);
 
 	if (loading) {
-		return <div>Loading...</div>;
+		return <div className="loading">
+					<h2>Page Is Loading...</h2>
+				</div>;
 	}
 
 	if (error) {
-		return <div>An error occured: {error}</div>;
+		return <div>Ups, something went wrong: {error}</div>;
 	}
 
 	return (
         <>
-        <div className="detail-container">
+		<div className="container-box">
+		<Link className="back-btn" to="/hotels"><FontAwesomeIcon className="back-arrow" icon="caret-left" />Back</Link>
             <div className="detail-card">
-                <h1>{hotel.name}</h1>
-                <img src={hotel.img} alt={hotel.name}></img>
-                <p>{hotel.description}</p>
-
-            <Button variant="primary" onClick={handleShow}> Book Now</Button>
-
-            <Container>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Book Your Hotel</Modal.Title>
-                </Modal.Header>
-                
-                <Form>
-					<Form.Control className="form-input" type="text" placeholder="Full Name" />
-					<Form.Control className="form-input" type="email" placeholder="Email" />
-                    <div className="date-container">
-                    <DatePicker className="input-date" selected={startDate} onChange={date => setStartDate(date)} />
-                    <DatePicker className="input-date" selected={startDate} onChange={date => setStartDate(date)} />
-                    </div>
-				</Form>
-                    <Button variant="secondary" onClick={handleClose}>Submit</Button>
-            </Modal>
-            </Container>
+				<div>
+					<h1>{hotel.name}</h1>
+					<p>{hotel.description}</p>
+					<div className="extra-info">
+						<p>Max {hotel.max} people</p>
+						<p>Roms - {hotel.roms}</p>
+						<p>Price from {hotel.price},- Nok</p>
+					</div>
+					<ModalComponent />
+				</div>
+				<div>
+					<img src={API_URL + hotel.img.url} alt={hotel.name}></img>
+				</div>
             </div>
-        </div>
+		</div>
         </>
 	);
 }

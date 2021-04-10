@@ -25,11 +25,13 @@ function Hotels() {
 	}, []);
 
 	if (loading) {
-		return <div>Loading...</div>;
+		return <div className="loading">
+					<h2>Page Is Loading...</h2>
+				</div>;
 	}
 
 	if (error) {
-		return <div>An error occured: {error}</div>;
+		return <div>Ups, something went wrong: {error}</div>;
 	}
 
 	return (

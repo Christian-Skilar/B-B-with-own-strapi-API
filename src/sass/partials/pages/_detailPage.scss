@@ -1,51 +1,87 @@
-.detail-container {
-	background: transparent;
+.back-btn {
+	color: #232423;
+	font-size: 20px;
+	font-weight: 400;
+	text-transform: uppercase;
+	transition: 300ms;
+}
+
+.back-btn:hover {
+	text-decoration: none;
+	color: $light;
+}
+
+.back-arrow {
+	margin-right: 5px;
+}
+
+.container-box {
+	width: 80%;
+	max-width: 1900px;
 	height: 100vh;
+	margin: 100px auto;
 }
 
 .detail-card {
 	@include cards;
-	margin: 200px auto;
-	width: 80%;
-	padding: 100px 50px;
-}
-
-// MODAL STYLES -----------------
-
-.modal-content {
-	background: $dark;
-	margin-top: 200px;
-}
-
-.close {
-	color: white;
-	opacity: 1;
-}
-
-.close:hover {
-	color: white;
-}
-
-.modal-title {
-	color: $light;
-	text-transform: uppercase;
-	margin-left: 95px;
-	font-size: 30px;
-}
-
-.date-container {
 	display: flex;
-	justify-content: space-between;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: space-evenly;
+	margin: 10px auto;
+	width: 100%;
+	max-width: 1900px;
+	padding: 100px 0;
+
+	div {
+		margin: 0 20px;
+		width: 40%;
+	}
+
+	h1 {
+		border-bottom: 2px solid white;
+		width: 70%;
+		padding-bottom: 5px;
+		margin: 0 auto;
+	}
+
+	p {
+		margin-top: 30px;
+	}
+
+	img {
+		width: 100%;
+	}
 }
 
-.input-date {
-	border: none;
-	background: transparent;
-	color: $light;
-	border-bottom: 1px solid $light;
-	width: 100%;
-	margin: 20px auto;
-	text-align: center;
+.extra-info {
+	display: flex;
+	justify-content: space-between;
+	width: 100% !important;
+	margin: 0 !important;
+}
+
+//
+// MEDIA QUERIES ---------------
+
+@media only screen and (max-width: 1200px) {
+	.detail-card {
+		flex-direction: column;
+		justify-content: center;
+
+		div {
+			width: 90%;
+			margin: 0 auto;
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.extra-info {
+		flex-direction: column;
+
+		p {
+			margin: 10px 0;
+		}
+	}
 }
