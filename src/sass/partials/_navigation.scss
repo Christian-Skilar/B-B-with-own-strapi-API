@@ -1,6 +1,6 @@
 .logo {
 	color: $primal-blue;
-	font-size: 40px;
+	font-size: 50px;
 	text-transform: uppercase;
 	margin: 0 100px;
 	font-family: "adam";
@@ -15,14 +15,18 @@
 	color: $light;
 	margin: 0 20px;
 	font-family: "adam";
-	font-size: 20px;
+	font-size: 25px;
 }
 
 .nav-links:hover {
-	color: lightgray;
+	color: $primal-blue;
 	text-decoration: none;
 }
 
 .navbar-dark .navbar-toggler {
 	border-color: transparent;
+}
+
+.navbar {
+	margin-bottom: 100px;
 }

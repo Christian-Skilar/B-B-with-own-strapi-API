@@ -1,5 +1,5 @@
 body {
-	background: linear-gradient(to top right, #ffffff 0%, #02bfc4 100%);
+	@include background;
 	font-family: gill-sans-nova, sans-serif;
 	font-weight: 300;
 	font-style: normal;
@@ -10,7 +10,7 @@ body {
 }
 
 form {
-	padding: 0 40px;
+	padding: 40px;
 }
 
 img {
@@ -18,8 +18,24 @@ img {
 	margin-bottom: 20px;
 }
 
+input,
+textarea {
+	@include inputs;
+}
+
+.container {
+	background: $light;
+	color: $dark;
+	border-radius: 5px;
+	width: 80%;
+	max-width: 1900px;
+	margin: 50px auto;
+	padding: 20px;
+	box-shadow: 0px 10px 23px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
 .loading {
-	background: linear-gradient(to top right, #ffffff 0%, #02bfc4 100%);
+	@include background;
 	display: flex;
 	justify-content: center;
 	height: 100vh;
@@ -31,16 +47,22 @@ img {
 	}
 }
 
-// CREATE PAGE ----------
+// ---------- BACK BUTTON ON PAGE CREATE AND DETAILS ----------
 
-.create-container {
-	display: flex;
-	flex-direction: column;
-	width: 70%;
-	margin: 100px auto;
+.back-btn {
+	color: $dark-gray;
+	font-size: 20px;
+	font-weight: 400;
+	text-transform: uppercase;
+	transition: 300ms;
+}
 
-	input,
-	textarea {
-		margin: 10px 0;
-	}
+.back-btn:hover {
+	text-decoration: none;
+	color: $primal-blue;
+	border-bottom: 1px solid $gray;
+}
+
+.back-arrow {
+	margin-right: 5px;
 }

@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 import ModalComponent from "../layout/Modal";
 import { API } from "../constants/Api";
 import { API_URL } from "../constants/Api";
 
-function HotelDetail(props) {
-	console.log(props);
+function HotelDetail() {
 	const [hotel, sethotel] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
@@ -55,8 +55,8 @@ function HotelDetail(props) {
 
 	return (
         <>
-		<div className="container-box">
-		<Link className="back-btn" to="/hotels"><FontAwesomeIcon className="back-arrow" icon="caret-left" />Back</Link>
+		<div className="container">
+		<Link className="back-btn" to="/hotels"><FontAwesomeIcon className="btn-icons" icon="caret-left" />Back</Link>
             <div className="detail-card">
 				<div>
 					<h1>{hotel.name}</h1>
@@ -66,12 +66,12 @@ function HotelDetail(props) {
 						<p>Roms - {hotel.roms}</p>
 						<p>Price from {hotel.price},- Nok</p>
 					</div>
-					<ModalComponent />
 				</div>
 				<div>
 					<img src={API_URL + hotel.img.url} alt={hotel.name}></img>
 				</div>
             </div>
+			<ModalComponent />
 		</div>
         </>
 	);

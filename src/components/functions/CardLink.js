@@ -18,6 +18,7 @@ function CardLink({ id, name, img, description }) {
 CardLink.propTypes = {
 	id: PropTypes.number,
 	name: PropTypes.string,
+    img: PropTypes.object,
     description: PropTypes.string,
 };
 

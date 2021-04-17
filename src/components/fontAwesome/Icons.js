@@ -1,4 +1,4 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCaretLeft } from '@fortawesome/free-solid-svg-icons'
+import { faCaretLeft, faCaretDown, faCheck, faHeart } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faCaretLeft)
+library.add(faCaretLeft, faCaretDown, faCheck, faHeart)

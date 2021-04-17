@@ -1,0 +1,24 @@
+.message-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: left;
+}
+
+.message-cards {
+	width: 40%;
+	min-width: 450px;
+	margin: 20px;
+	padding: 20px 30px;
+	border: 1px solid $gray;
+	border-radius: 5px;
+}
+
+.admin {
+	padding: 50px;
+}
+
+.admin-btn {
+	margin: 50px 20px !important;
+	width: 340px !important;
+}

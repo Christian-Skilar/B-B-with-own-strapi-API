@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import CardLink from "../layout/CardLink";
+import CardLink from "../functions/CardLink";
 import { API } from "../constants/Api";
 
 function Hotels() {

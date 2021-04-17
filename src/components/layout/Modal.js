@@ -1,41 +1,47 @@
 import { useState } from "react";
-import DatePicker from "react-datepicker";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
-import "react-datepicker/dist/react-datepicker.css";
+import { API_URL } from "../constants/Api";
 
 function ModalComponent() {
 
-    const [show, setShow] = useState(false);
-    const [startDate, setStartDate] = useState(new Date());
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [name, setName] = useState('');
+    const [mail, setMail] = useState('');
+	const [datefrom, setDatefrom] = useState('');
+    const [dateto, setDateto] = useState('');
+
+    const handleSubmit = async (event) => {
+		event.preventDefault()
+
+            const response = await fetch (API_URL + "/enquiries", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({name, mail, datefrom, dateto})
+            })
+    
+            const data = await response.json();
+            console.log("data", data);
+    }
   
 
     return (
-        <>
-            <Button variant="primary" onClick={handleShow}> Book Now</Button>
-        
-            <Container>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Book Your Hotel</Modal.Title>
-                </Modal.Header>
-                
-                <Form>
-                    <Form.Control className="form-input" type="text" placeholder="Full Name" />
-                    <Form.Control className="form-input" type="email" placeholder="Email" />
-                    <div className="date-container">
-                    <DatePicker className="input-date" selected={startDate} onChange={date => setStartDate(date)} />
-                    <DatePicker className="input-date" selected={startDate} onChange={date => setStartDate(date)} />
-                    </div>
-                </Form>
-                    <Button variant="secondary" onClick={handleClose}>Submit</Button>
-            </Modal>
-            </Container>
-        </>
+		<div>
+
+			<h2>Book now</h2>
+			<form onSubmit={handleSubmit}>
+
+			<input placeholder="Name" type="text" value={name} onChange={(event) =>setName(event.target.value)}/> 
+    
+			<input placeholder="Email" type="text" value={mail} onChange={(event) =>setMail(event.target.value)}/>
+
+			<input placeholder="From" type="date" value={datefrom} onChange={(event) =>setDatefrom(event.target.value)}/> 
+
+			<input placeholder="To" type="date" value={dateto} onChange={(event) =>setDateto(event.target.value)} />
+
+			<button className="btn">Send</button>
+
+			</form>
+		</div>
     )
 }
 

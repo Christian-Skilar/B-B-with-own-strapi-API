@@ -1,27 +1,53 @@
 @mixin Button {
 	display: block;
-	font-family: "adam";
+	font-family: gill-sans-nova, sans-serif;
+	font-weight: 400;
 	text-transform: uppercase;
 	font-size: 25px;
 	color: $primal-green;
-	border: 1px solid $primal-green;
+	border: 2px solid $primal-green;
 	background: transparent;
-	width: 200px;
+	width: 220px;
 	margin: 50px auto;
 	transition: 300ms;
 
 	&:hover {
 		color: $light;
 		background: $primal-green;
-		border: 1px solid $primal-green;
+		border: 2px solid $primal-green;
 		text-decoration: none !important;
 	}
 }
 
+@mixin background {
+	background: linear-gradient(
+		to bottom left,
+		#a5fecb 0%,
+		#20bdff 40%,
+		#5433ff 100%
+	);
+}
+
 @mixin cards {
 	border-radius: 5px;
-	background: $dark;
-	opacity: 0.9;
-	color: $light;
+	background: $light;
+	color: $dark;
 	border: none;
+}
+
+@mixin fontStyle {
+	text-align: center;
+	color: $dark;
+	text-transform: uppercase;
+}
+
+@mixin inputs {
+	display: flex;
+	justify-content: center;
+	width: 80%;
+	margin: 20px auto;
+	padding: 25px 0 1px 5px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid $dark;
 }
