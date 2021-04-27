@@ -30,3 +30,14 @@
 .navbar {
 	margin-bottom: 100px;
 }
+
+//
+// MEDIA QUERIES ---------------
+
+@media only screen and (max-width: 991px) {
+	.logo {
+		font-size: 40px;
+		margin: 0 auto;
+		padding-left: 56px;
+	}
+}

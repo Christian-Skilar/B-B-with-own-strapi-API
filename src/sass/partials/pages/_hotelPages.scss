@@ -3,13 +3,14 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin: 100px 0;
+	max-width: 1800px;
+	margin: 0 auto;
 }
 .card {
 	@include cards;
 	width: 400px;
 	padding: 20px;
-	margin: 20px;
+	margin: 30px;
 
 	h3 {
 		font-family: "adam";

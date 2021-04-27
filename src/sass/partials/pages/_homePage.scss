@@ -46,13 +46,15 @@
 	position: absolute;
 	margin-top: -25px;
 	width: 100%;
+	height: 300px;
+	overflow: scroll;
 }
 
 ::-webkit-scrollbar {
 	width: 0;
 }
 
-.app {
+.src-container {
 	width: 50%;
 	background: rgba(0, 0, 0, 0.7);
 	border-radius: 5px;
@@ -84,45 +86,24 @@
 	cursor: pointer;
 }
 
-//----------------------------------------
+//
+// MEDIA QUERIES ---------------
 
-.src-container {
-	position: relative;
-	background: rgba(0, 0, 0, 0.7);
-	padding: 50px;
-	width: 800px;
-	border-radius: 5px;
+@media only screen and (max-width: 1200px) {
+	.search-bar-dropdown {
+		position: relative;
+		width: 80%;
+		margin: 10px auto;
+	}
 
-	h2 {
-		color: $light;
+	.src-container {
+		width: 100%;
+		border-radius: 0;
 	}
 }
 
-label {
-	width: 100%;
-
-	input {
-		border-radius: 5px;
-		border: none;
-		padding: 20px 10px;
+@media only screen and (max-width: 630px) {
+	.iicons {
+		left: 90%;
 	}
-
-	input:focus {
-		outline: none;
-	}
-}
-
-.results-container {
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	background: $light;
-	width: 560px;
-	left: 120px;
-	max-width: 1500px;
-	margin-top: -32px;
-}
-
-.results-container:last-child {
-	border-radius: 0 0 5px 5px;
 }

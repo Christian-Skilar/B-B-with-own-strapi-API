@@ -58,26 +58,26 @@ function Login () {
             <div className="form-bg">
             <h1>Login Page</h1>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(event) => {
-                        setError('')
-                        setEmail(event.target.value)
-                    }}
-                />
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(event) => {
-                        setError('')
-                        setPassword(event.target.value)
-                    }}
-                />
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(event) => {
+                            setError('')
+                            setEmail(event.target.value)
+                        }}
+                    />
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(event) => {
+                            setError('')
+                            setPassword(event.target.value)
+                        }}
+                    />
+                    {error && <p>{error}</p>}
                     <button className="btn">{submitting ? "Loggin in..." : "Login"}</button>
-            </form>
-            {error && <p>{error}</p>}
+                </form>
             </div>
         </div>
     )

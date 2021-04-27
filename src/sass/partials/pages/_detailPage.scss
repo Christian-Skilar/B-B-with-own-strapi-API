@@ -8,6 +8,7 @@
 	width: 100%;
 	max-width: 1900px;
 	padding: 100px 0;
+	box-shadow: none;
 
 	div {
 		margin: 0 20px;
@@ -45,7 +46,7 @@
 //
 // MEDIA QUERIES ---------------
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1400px) {
 	.detail-card {
 		flex-direction: column;
 		justify-content: center;

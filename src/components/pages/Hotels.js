@@ -35,11 +35,13 @@ function Hotels() {
 	}
 
 	return (
-		<div className="cards">
+		<div className="container-cards">
+			<div className="cards">
 			{hotels.map(function (hotel) {
-				const { id, name, img, description } = hotel;
-				return <CardLink key={id} id={id} name={name} img={img} description={description} />;
+				const { id, name, img } = hotel;
+				return <CardLink key={id} id={id} name={name} img={img} />;
 			})}
+		</div>
 		</div>
 	);
 }

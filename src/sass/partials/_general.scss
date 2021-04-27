@@ -66,3 +66,34 @@ textarea {
 .back-arrow {
 	margin-right: 5px;
 }
+
+::-webkit-file-upload-button {
+	font-family: gill-sans-nova, sans-serif;
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: 20px;
+	color: $primal-green;
+	border: 2px solid $primal-green;
+	border-radius: 5px;
+	background: transparent;
+	width: 120px;
+	margin-right: 20px;
+	transition: 300ms;
+
+	&:hover {
+		color: $light;
+		background: $primal-green;
+		border: 2px solid $primal-green;
+		text-decoration: none !important;
+	}
+}
+
+//
+// MEDIA QUERIES ---------------
+
+@media only screen and (max-width: 800px) {
+	input,
+	textarea {
+		width: 100%;
+	}
+}

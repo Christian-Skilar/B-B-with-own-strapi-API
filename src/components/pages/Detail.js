@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ModalComponent from "../layout/Modal";
 import { API } from "../constants/Api";
 import { API_URL } from "../constants/Api";
+import Placeholder from "../../img/placeholder.png";
 
 function HotelDetail() {
 	const [hotel, sethotel] = useState(null);
@@ -53,27 +54,31 @@ function HotelDetail() {
 		return <div>Ups, something went wrong: {error}</div>;
 	}
 
+    let imageUrl = Placeholder;
+  
+    if (hotel && hotel.img) {
+        imageUrl = API_URL + hotel.img.url;
+    }
+
 	return (
-        <>
-		<div className="container">
-		<Link className="back-btn" to="/hotels"><FontAwesomeIcon className="btn-icons" icon="caret-left" />Back</Link>
-            <div className="detail-card">
-				<div>
-					<h1>{hotel.name}</h1>
-					<p>{hotel.description}</p>
-					<div className="extra-info">
-						<p>Max {hotel.max} people</p>
-						<p>Roms - {hotel.roms}</p>
-						<p>Price from {hotel.price},- Nok</p>
+			<div className="container">
+			<Link className="back-btn" to="/hotels"><FontAwesomeIcon className="btn-icons" icon="caret-left" />Back</Link>
+				<div className="detail-card">
+					<div>
+						<h1>{hotel.name}</h1>
+						<p>{hotel.description}</p>
+						<div className="extra-info">
+							<p>Max {hotel.max} people</p>
+							<p>Roms - {hotel.roms}</p>
+							<p>Price from {hotel.price},- Nok</p>
+						</div>
+					</div>
+					<div>
+						<img src={imageUrl} alt={hotel.name}></img>
 					</div>
 				</div>
-				<div>
-					<img src={API_URL + hotel.img.url} alt={hotel.name}></img>
-				</div>
-            </div>
-			<ModalComponent />
-		</div>
-        </>
+				<ModalComponent />
+			</div>
 	);
 }
 

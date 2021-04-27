@@ -41,7 +41,7 @@ function Search() {
   }
 
   return (
-          <div className="app">
+          <div className="src-container">
           <h2>Search hotels</h2>
               <div className="search-bar-dropdown">
 

@@ -6,11 +6,9 @@ import Enquiries from "../functions/Booking";
 function Admin() {
     
     return (
-            <>
-            	<div>
                     <div className="admin container">
                         <h2>Admin Page</h2>
-                        <Link className="admin-btn btn" to="/create">create establishment</Link>
+                        <Link className="admin-btn" to="/create">New hotel +</Link>
                         <h3>Messages</h3>
                         <div className="message-container">
                             <Messages />
@@ -20,8 +18,6 @@ function Admin() {
                             <Enquiries />
                         </div>
                     </div>
-		        </div>
-            </>
     )
 }
 
