@@ -47,6 +47,21 @@ textarea {
 	}
 }
 
+.success {
+	@include validation;
+	border: 2px solid #03a63c;
+	background: rgba(0, 230, 64, 0.3);
+	color: #03a63c;
+}
+
+.error {
+	@include validation;
+	color: red;
+	background: rgba(240, 52, 52, 0.2);
+	border: 2px solid red;
+	margin-top: -10px;
+}
+
 // ---------- BACK BUTTON ON PAGE CREATE AND DETAILS ----------
 
 .back-btn {
@@ -94,6 +109,10 @@ textarea {
 @media only screen and (max-width: 800px) {
 	input,
 	textarea {
+		width: 100%;
+	}
+
+	.error {
 		width: 100%;
 	}
 }

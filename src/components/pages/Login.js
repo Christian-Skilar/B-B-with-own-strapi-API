@@ -1,3 +1,4 @@
+
 import {useState, useContext, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
@@ -60,6 +61,7 @@ function Login () {
 
                 <form onSubmit={handleSubmit}>
                     <input
+                        placeholder="Email"
                         type="email"
                         value={email}
                         onChange={(event) => {
@@ -68,6 +70,7 @@ function Login () {
                         }}
                     />
                     <input
+                        placeholder="Password"
                         type="password"
                         value={password}
                         onChange={(event) => {
@@ -75,7 +78,7 @@ function Login () {
                             setPassword(event.target.value)
                         }}
                     />
-                    {error && <p>{error}</p>}
+                    {error && <p className="error">{error}</p>}
                     <button className="btn">{submitting ? "Loggin in..." : "Login"}</button>
                 </form>
             </div>
@@ -84,4 +87,3 @@ function Login () {
 }
 
 export default Login;
-

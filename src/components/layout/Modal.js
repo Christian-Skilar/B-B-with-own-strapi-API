@@ -1,33 +1,30 @@
 import { useState } from "react";
-import { API_URL } from "../constants/Api";
+import { useForm } from "react-hook-form";
 import Modal from "react-bootstrap/Modal"
 import Button from "react-bootstrap/Button"
+import { API_URL } from "../constants/Api";
+
 
 function ModalComponent() {
 
-    const [name, setName] = useState('');
-    const [mail, setMail] = useState('');
-	const [datefrom, setDatefrom] = useState('');
-    const [dateto, setDateto] = useState('');
+    const { register, handleSubmit, formState: { errors } } = useForm();
+	const [submitted, setSubmitted] = useState(false);
 
-    const handleSubmit = async (event) => {
-		event.preventDefault()
+    async function onSubmit (data) {
+        console.log(data);
+		setSubmitted(true);
 
             const response = await fetch (API_URL + "/enquiries", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({name, mail, datefrom, dateto})
+                body: JSON.stringify(data)
             })
-    
-            const data = await response.json();
-            console.log("data", data);
+            console.log(response);
     }
 
-
         const [show, setShow] = useState(false);
-      
         const handleClose = () => setShow(false);
         const handleShow = () => setShow(true);
   
@@ -42,11 +39,21 @@ function ModalComponent() {
                 <Modal.Title>Book hotel Now</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <form onSubmit={handleSubmit}>
-                    <input placeholder="Name" type="text" value={name} onChange={(event) =>setName(event.target.value)}/> 
-                    <input placeholder="Email" type="text" value={mail} onChange={(event) =>setMail(event.target.value)}/>
-                    <input placeholder="From" type="date" value={datefrom} onChange={(event) =>setDatefrom(event.target.value)}/> 
-                    <input placeholder="To" type="date" value={dateto} onChange={(event) =>setDateto(event.target.value)} />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                {submitted ? <div className="success">Success! The form was submitted</div> : null}
+
+                    <input placeholder="Name" type="text" {...register("name", { required: true, minLength: 3 })} />
+                    {errors.name && <span className="error">This field is required</span>} 
+
+                    <input placeholder="Email" type="text" {...register("mail", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} />
+                    {errors.mail && <span className="error">This field is required</span>}
+
+                    <input placeholder="From" type="date" {...register("datefrom", { required: true })} /> 
+                    {errors.datefrom && <span className="error">This field is required</span>}
+
+                    <input placeholder="To" type="date" {...register("dateto", { required: true })} />
+                    {errors.dateto && <span className="error">This field is required</span>}
+
                     <button className="btn">Send</button>
                 </form>
             </Modal.Body>

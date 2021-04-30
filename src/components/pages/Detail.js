@@ -65,7 +65,7 @@ function HotelDetail() {
 			<Link className="back-btn" to="/hotels"><FontAwesomeIcon className="btn-icons" icon="caret-left" />Back</Link>
 				<div className="detail-card">
 					<div>
-						<h1>{hotel.name}</h1>
+						<h2>{hotel.name}</h2>
 						<p>{hotel.description}</p>
 						<div className="extra-info">
 							<p>Max {hotel.max} people</p>
