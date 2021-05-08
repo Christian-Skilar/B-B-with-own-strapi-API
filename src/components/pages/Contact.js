@@ -59,6 +59,7 @@ function Contact() {
 
 					<button className="btn">Send</button>
 				</form>
+
 		</div>
 
   );

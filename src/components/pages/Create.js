@@ -9,6 +9,9 @@ import { API } from "../constants/Api";
 function Create() {
 
     const [name, setName] = useState('');
+    const [roms, setRoms] = useState('');
+    const [max, setMax] = useState('');
+    const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [file, setFile] = useState(null);
     const [error, setError] = useState('');
@@ -28,16 +31,14 @@ function Create() {
         setSubmitted(true);
 
         const formData = new FormData()
-        formData.append("data", JSON.stringify({name}));
-        formData.append("data", JSON.stringify({description}));
+        formData.append("data", JSON.stringify({name, roms, max, price, description}));
         formData.append("files.img", file);
 
         try {
             const response = await fetch (API, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${user.jwt}`,
-                    'Content-Type': 'application/json'
+                    'Authorization': `Bearer ${user.jwt}`
                 },
                 body: formData
             })
@@ -59,10 +60,11 @@ function Create() {
                         <form onSubmit={handleSubmit}>
                         {submitted ? <div className="success">Success! The form was submitted</div> : null}
 
-                            <input placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} />
-
-                            <textarea className="border" placeholder="Description" value={description} rows="6" onChange={(event) => setDescription(event.target.value)}/>
-
+                            <input placeholder="Name *" value={name} onChange={(event) => setName(event.target.value)} />
+                            <input placeholder="Roms" value={roms} onChange={(event) => setRoms(event.target.value)} />
+                            <input placeholder="Max" value={max} onChange={(event) => setMax(event.target.value)} />
+                            <input placeholder="Price *" value={price} onChange={(event) => setPrice(event.target.value)} />
+                            <textarea className="border" placeholder="Description *" value={description} rows="6" onChange={(event) => setDescription(event.target.value)}/>
                             <input type="file" className="file-upload" onChange={(event) => setFile(event.target.files[0])} />
 
                             <button className="btn">Submit</button>
@@ -72,3 +74,5 @@ function Create() {
 }
 
 export default Create;
+
+
