@@ -7,7 +7,7 @@
 	margin: 10px auto;
 	width: 100%;
 	max-width: 1900px;
-	padding: 100px 0;
+	padding: 100px 0 0 0;
 	box-shadow: none;
 
 	div {
@@ -15,8 +15,8 @@
 		width: 40%;
 	}
 
-	h1 {
-		border-bottom: 2px solid white;
+	h2 {
+		border-bottom: 2px solid $dark;
 		width: 70%;
 		padding-bottom: 5px;
 		margin: 0 auto;
@@ -28,6 +28,7 @@
 
 	img {
 		width: 100%;
+		border-radius: 5px;
 	}
 }
 
@@ -40,7 +41,7 @@
 
 .btn-icons {
 	margin: 0 10px;
-	font-size: 25px;
+	font-size: 23px;
 }
 
 //
@@ -64,6 +65,27 @@
 
 		p {
 			margin: 10px 0;
+		}
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.detail-card {
+		div {
+			margin: 0;
+			width: 100%;
+		}
+
+		h2 {
+			width: 100%;
+		}
+
+		p {
+			margin-top: 30px;
+		}
+
+		img {
+			width: 100%;
 		}
 	}
 }

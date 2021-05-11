@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { API_URL } from "../constants/Api";
+import bgImage from "../../img/cityskyline-fix.png";
 
 function Contact() {
 
@@ -24,7 +25,7 @@ function Contact() {
     }
 
   return (
-
+	  <>
 		<div className="form-bg">
 			<h1>Contact us</h1>
 				<form onSubmit={handleSubmit(onSubmit)}>
@@ -42,11 +43,11 @@ function Contact() {
 							/> 
 							{errors.subject && <span className="error">This field is required</span>}
 
-					<input 	name="email" 
+					<input 	name="mail" 
 							placeholder="Email" 
 							{...register("mail", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })}
 							/>
-							{errors.email && <span className="error">This field is required</span>}
+							{errors.email && <span className="error">Please provide a valid email address</span>}
 
 					<textarea 	name="message" 
 								placeholder="Message" 
@@ -55,13 +56,19 @@ function Contact() {
 								cols="50" 
 								{...register("message", { required: true, minLength: 10 })}
 								/>
-								{errors.message && <span className="error">This field is required</span>}
+								{errors.message && <span className="error">This field requires 10 + characters</span>}
 
-					<button className="btn">Send</button>
+					<div className="btn-container">
+					<button className="btn-1">Send</button>
+					</div>
 				</form>
 
-		</div>
-
+			</div>
+				<div className="bg-image">
+					<img src={bgImage} alt="city Background"/>
+					<img src={bgImage} alt="city Background" className="second"/>
+				</div>
+		</>
   );
 }
 

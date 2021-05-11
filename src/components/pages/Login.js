@@ -2,13 +2,13 @@
 import {useState, useContext, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import bgImage from "../../img/cityskyline-fix.png";
 
 function Login () {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [submitting, setSubmitting] = useState(false);
     const history = useHistory();
 
     const {user, setUser} = useContext(UserContext);
@@ -24,7 +24,7 @@ function Login () {
         event.preventDefault()
 
         try {
-            const response = await fetch('http://localhost:1337/auth/local', {
+            const response = await fetch('https://powerful-tundra-28507.herokuapp.com/auth/local', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
@@ -47,15 +47,13 @@ function Login () {
             setUser(data);
 
         }catch(error) {
-            setError("Ops, something went wrong" + error);
-        } finally {
-			setSubmitting(false);
-		}
+            setError("Ops, something went wrong: " + error);
+        } 
 
     }
 
     return (
-        <div>
+        <>
             <div className="form-bg">
             <h1>Login Page</h1>
 
@@ -79,10 +77,16 @@ function Login () {
                         }}
                     />
                     {error && <p className="error">{error}</p>}
-                    <button className="btn">{submitting ? "Loggin in..." : "Login"}</button>
+                    <div className="btn-container-center">
+					<button className="btn-1">login</button>
+					</div>
                 </form>
             </div>
-        </div>
+            <div className="bg-image">
+                <img src={bgImage} alt="city Background"/>
+                <img src={bgImage} alt="city Background" className="second"/>
+		    </div>
+        </>
     )
 }
 

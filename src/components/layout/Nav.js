@@ -1,9 +1,6 @@
 import { useContext } from 'react';
-import { NavLink, Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-
 import { UserContext } from "../context/UserContext";
 
 function Navigation() {
@@ -16,17 +13,19 @@ function Navigation() {
             <Link className="logo" to="/">Holidaze</Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mr-auto">
-                        <NavLink className="nav-links" to="/">Home</NavLink>
-                        <NavLink className="nav-links" to="/hotels">Hotels</NavLink>
-                        <NavLink className="nav-links" to="/contact">Contact</NavLink>
+                <nav class="stroke">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/hotels">Hotels</a></li>
+                        <li><a href="/contact">Contact</a></li>
                         {user &&
-                        <NavLink className="nav-links" to="/admin">Admin</NavLink>
+                        <li><a href="/admin">Admin</a></li>
                         }
                         {!user &&
-                        <NavLink className="nav-links" to="/login">Login</NavLink>
+                        <li><a href="/login">Login</a></li>
                         }
-                    </Nav>
+                    </ul>
+                </nav>
                 </Navbar.Collapse>
         </Navbar>
         </>

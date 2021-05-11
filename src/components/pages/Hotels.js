@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CardLink from "../functions/CardLink";
 import { API } from "../constants/Api";
+import bgImage from "../../img/cityskyline-fix.png";
 
 function Hotels() {
 	const [hotels, sethotels] = useState([]);
@@ -11,10 +12,14 @@ function Hotels() {
 		async function fetchData() {
 			try {
 				const response = await fetch(API);
-				const json = await response.json();
-				console.log(json);
-				sethotels(json);
 
+				if (response.ok) {
+					const json = await response.json();
+					console.log(json);
+					sethotels(json);
+				} else {
+					setError("An error occured");
+				}
 			} catch (error) {
 				setError(error.toString());
 			} finally {
@@ -35,12 +40,14 @@ function Hotels() {
 	}
 
 	return (
-		<div className="container-cards">
-			<div className="cards">
+		<div>
 			{hotels.map(function (hotel) {
-				const { id, name, img } = hotel;
-				return <CardLink key={id} id={id} name={name} img={img} />;
+				const { id, name, img, description } = hotel;
+				return <CardLink key={id} id={id} name={name} img={img} description={description}/>;
 			})}
+		<div className="bg-image">
+			<img src={bgImage} alt="city Background"/>
+			<img src={bgImage} alt="city Background" className="second"/>
 		</div>
 		</div>
 	);

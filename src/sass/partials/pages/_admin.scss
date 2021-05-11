@@ -6,7 +6,7 @@
 }
 
 .message-cards {
-	width: 40%;
+	width: 46%;
 	min-width: 450px;
 	margin: 20px;
 	padding: 20px 30px;
@@ -25,24 +25,34 @@
 	}
 }
 
+.h1-admin {
+	margin-bottom: 100px;
+}
+
 .admin-btn {
-	@include Button;
+	@include buttons;
 	border-radius: 5px;
-	padding: 10px 30px;
-	margin: 70px 20px;
-	width: 360px;
+	padding: 5px 50px;
+	margin: 20px;
+
+	&::after {
+		content: "\254B";
+		position: absolute;
+		font-size: 18px;
+		left: 80%;
+		top: 17%;
+		right: 5%;
+		bottom: 0;
+		opacity: 0;
+	}
 }
 
 //
 // MEDIA QUERIES
 
-@media only screen and (max-width: 730px) {
-	.message-container {
-		justify-content: center;
-	}
-
+@media only screen and (max-width: 1349px) {
 	.message-cards {
-		width: 50%;
+		width: 90%;
 		min-width: 300px;
 	}
 
@@ -55,10 +65,10 @@
 			width: 90%;
 		}
 	}
+}
 
-	.admin-btn {
-		margin: 70px auto;
-		width: 250px;
-		font-size: 20px;
+@media only screen and (max-width: 730px) {
+	.message-container {
+		justify-content: center;
 	}
 }

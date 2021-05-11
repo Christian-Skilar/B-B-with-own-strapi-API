@@ -4,43 +4,74 @@
 	font-weight: 400;
 	text-transform: uppercase;
 	font-size: 25px;
-	color: $light;
+	color: $primal-blue;
 	border: 2px solid $primal-blue;
-	background: $primal-blue;
+	border-radius: 5px;
+	text-align: center;
+	background: transparent;
 	width: 220px;
 	margin: 50px auto;
-	transition: 150ms;
+	padding: 5px 0;
+	transition: 200ms;
 
 	&:hover {
 		color: $light;
-		background: $primal-green;
-		border: 2px solid $primal-green;
+		background: $primal-blue;
+		border: 2px solid $primal-blue;
 		text-decoration: none !important;
-		transform: scale(1.02);
-		box-shadow: 0px 5px 7px -5px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-	}
-
-	&:active {
-		box-shadow: none;
-		transform: scale(1);
 	}
 }
 
-@mixin background {
-	background: linear-gradient(
-		to bottom left,
-		#a5fecb 0%,
-		#20bdff 40%,
-		#5433ff 100%
-	);
+@mixin buttons {
+	background: $light;
+	color: $primal-blue;
+	cursor: pointer;
+	font-family: gill-sans-nova, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 25px;
+	text-transform: uppercase;
+	padding: 5px 50px;
+	margin-top: 10px;
+	border: 0;
+	transition: all 400ms;
+	border-radius: 5px;
+	border: 2px solid $primal-blue;
+	width: auto;
+	position: relative;
+
+	&::after {
+		content: "\279F";
+		position: absolute;
+		left: 55%;
+		top: 10%;
+		right: 5%;
+		bottom: 0;
+		opacity: 0;
+	}
+
+	&:hover {
+		transition: all 0.5s;
+		border-radius: 5px;
+		padding: 5px 70px 5px 50px;
+		text-decoration: none;
+		color: $primal-blue;
+
+		&::after {
+			opacity: 1;
+			transition: all 0.5s;
+		}
+	}
 }
 
 @mixin cards {
-	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	background: $light;
 	color: $dark;
 	border: none;
-	box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+	transition: 300ms;
 }
 
 @mixin fontStyle {

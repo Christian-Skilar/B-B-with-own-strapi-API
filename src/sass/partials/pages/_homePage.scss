@@ -1,7 +1,6 @@
 .landingPage-img {
-	height: 70vh;
-	max-width: 1800px;
-	margin: 100px auto;
+	height: 87.5vh;
+	width: 100vw;
 	background-image: url(../../../img/nightcity.jpg);
 	background-size: cover;
 	background-position: center;
@@ -9,7 +8,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border-radius: 5px;
 }
 
 // DROPDOWN ------------------
@@ -99,6 +97,12 @@
 	.src-container {
 		width: 100%;
 		border-radius: 0;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	.landingPage-img {
+		height: 94vh;
 	}
 }
 

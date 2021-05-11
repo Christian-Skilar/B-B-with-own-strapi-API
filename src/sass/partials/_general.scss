@@ -1,5 +1,4 @@
 body {
-	@include background;
 	font-family: gill-sans-nova, sans-serif;
 	font-weight: 300;
 	font-style: normal;
@@ -9,13 +8,21 @@ body {
 	padding: 0;
 }
 
-form {
-	padding: 40px;
+.bg-image {
+	display: flex;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index: -1;
+
+	img {
+		display: block;
+		width: 50%;
+	}
 }
 
-img {
-	border-radius: 5px;
-	margin-bottom: 20px;
+form {
+	padding: 40px;
 }
 
 input,
@@ -28,14 +35,14 @@ textarea {
 	color: $dark;
 	border-radius: 5px;
 	width: 80%;
-	max-width: 1900px;
-	margin: 50px auto;
+	max-width: 1400px;
+	margin: 150px auto;
 	padding: 20px;
+	z-index: 100;
 	box-shadow: 0px 10px 23px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 .loading {
-	@include background;
 	display: flex;
 	justify-content: center;
 	height: 100vh;
@@ -49,57 +56,59 @@ textarea {
 
 .success {
 	@include validation;
-	border: 2px solid #03a63c;
-	background: rgba(0, 230, 64, 0.3);
-	color: #03a63c;
+	border: 2px solid $success;
+	background: $success-bg;
+	color: $success;
 }
 
 .error {
 	@include validation;
-	color: red;
-	background: rgba(240, 52, 52, 0.2);
-	border: 2px solid red;
+	color: $error;
+	background: $error-bg;
+	border: 2px solid $error;
 	margin-top: -10px;
 }
 
 // ---------- BACK BUTTON ON PAGE CREATE AND DETAILS ----------
 
 .back-btn {
-	color: $dark-gray;
-	font-size: 20px;
-	font-weight: 400;
-	text-transform: uppercase;
-	transition: 300ms;
-}
-
-.back-btn:hover {
-	text-decoration: none;
+	background: $light;
 	color: $primal-blue;
-	border-bottom: 1px solid $gray;
-}
-
-.back-arrow {
-	margin-right: 5px;
-}
-
-::-webkit-file-upload-button {
+	cursor: pointer;
 	font-family: gill-sans-nova, sans-serif;
-	font-weight: 400;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 25px;
 	text-transform: uppercase;
-	font-size: 20px;
-	color: $primal-green;
-	border: 2px solid $primal-green;
+	padding: 0;
+	margin-top: 10px;
+	border: 0;
+	transition: all 400ms;
 	border-radius: 5px;
-	background: transparent;
-	width: 120px;
-	margin-right: 20px;
-	transition: 300ms;
+	width: auto;
+	position: relative;
+
+	&::before {
+		content: "\21A9";
+		position: absolute;
+		left: 0;
+		top: 15%;
+		right: 5%;
+		bottom: 0;
+		opacity: 0;
+	}
 
 	&:hover {
-		color: $light;
-		background: $primal-green;
-		border: 2px solid $primal-green;
-		text-decoration: none !important;
+		transition: all 0.5s;
+		border-radius: 5px;
+		padding: 0 10px 0 30px;
+		color: $primal-blue;
+		text-decoration: none;
+
+		&::before {
+			opacity: 1;
+			transition: all 0.5s;
+		}
 	}
 }
 
@@ -114,5 +123,21 @@ textarea {
 
 	.error {
 		width: 100%;
+	}
+
+	.bg-image {
+		img {
+			width: 100%;
+		}
+
+		.second {
+			display: none;
+		}
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.container {
+		width: 90%;
 	}
 }

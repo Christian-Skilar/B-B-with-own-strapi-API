@@ -32,7 +32,7 @@ function ModalComponent() {
     return (
 
         <>
-        <Button variant="primary" onClick={handleShow}>Book</Button>
+        <Button className="btn-1" onClick={handleShow}>Book</Button>
   
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -54,7 +54,9 @@ function ModalComponent() {
                     <input placeholder="To" type="date" {...register("dateto", { required: true })} />
                     {errors.dateto && <span className="error">This field is required</span>}
 
-                    <button className="btn">Send</button>
+					<div className="btn-container-center">
+                        <button className="book-btn">Send</button>
+					</div>
                 </form>
             </Modal.Body>
         </Modal>

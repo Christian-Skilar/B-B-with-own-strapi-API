@@ -2,9 +2,9 @@
 
 import React, { useState, useContext } from 'react'
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { UserContext } from "../context/UserContext";
 import { API } from "../constants/Api";
+import bgImage from "../../img/cityskyline-fix.png";
 
 function Create() {
 
@@ -52,8 +52,9 @@ function Create() {
         }
     }
     return (
-            <div className="container">
-            <Link className="back-btn" to="/admin"><FontAwesomeIcon className="btn-icons" icon="caret-left" />Back</Link>
+            <>
+                <div className="container">
+                <Link className="back-btn" to="/admin">Back</Link>
                     <h2>Register new establisment</h2>
                     {error && <p>{error}</p>}
 
@@ -67,9 +68,17 @@ function Create() {
                             <textarea className="border" placeholder="Description *" value={description} rows="6" onChange={(event) => setDescription(event.target.value)}/>
                             <input type="file" className="file-upload" onChange={(event) => setFile(event.target.files[0])} />
 
-                            <button className="btn">Submit</button>
+                            
+                            <div className="btn-container-center">
+					            <button className="btn-1">submit</button>
+					        </div>
                         </form>
                 </div>
+                        <div className="bg-image">
+                            <img src={bgImage} alt="city Background"/>
+                            <img src={bgImage} alt="city Background" className="second"/>
+                        </div>
+            </>
     )
 }
 
