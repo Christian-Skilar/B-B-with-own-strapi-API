@@ -13,7 +13,7 @@ function Navigation() {
             <Link className="logo" to="/">Holidaze</Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                <nav class="stroke">
+                <nav className="stroke">
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/hotels">Hotels</a></li>

@@ -4,10 +4,11 @@
 	text-transform: uppercase;
 	margin: 0 100px;
 	font-family: "adam";
+	transition: 400ms;
 }
 
 .logo:hover {
-	color: $primal-blue;
+	color: rgba(2, 191, 196, 0.7);
 	text-decoration: none;
 }
 
@@ -24,7 +25,7 @@ nav {
 	width: 100%;
 	margin: 0 auto;
 	background: $dark-gray;
-	padding: 30px 0;
+	padding: 10px 0;
 }
 nav ul {
 	list-style: none;
