@@ -39,10 +39,10 @@ function Enquiries() {
                 {enquiries.map(function (booking) {
                 const { name, mail, datefrom, dateto, id } = booking;
                 return <div className="message-cards" key={id}>
-                            <p>From - {name}</p>
-                            <p>Mail - {mail}</p>
-                            <p>Date - {datefrom}</p>
-                            <p>To - {dateto}</p>
+                            <p><span>Name</span> - {name}</p>
+                            <p><span>Mail</span> - {mail}</p>
+                            <p><span>From</span> - {datefrom}</p>
+                            <p><span>To</span> - {dateto}</p>
                         </div>
                     })}
             </>

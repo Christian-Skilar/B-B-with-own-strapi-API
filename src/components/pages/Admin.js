@@ -1,10 +1,21 @@
-import React from 'react';
+import { useContext, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 import Messages from "../functions/Messages";
 import Enquiries from "../functions/Booking";
 import bgImage from "../../img/cityskyline-fix.png";
 
 function Admin() {
+
+    const history = useHistory();
+    const {user} = useContext(UserContext);
+
+    useEffect(() => {
+        if(!user){
+            history.push('/')
+        }
+    });
     
     return (
             <>

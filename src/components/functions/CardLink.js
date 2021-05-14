@@ -21,7 +21,10 @@ function CardLink({ id, name, img, description }) {
                 </div>
                 <div>
                     <p className="card-description">{description}</p>
+                    
+                    <div className="vm-btn">
                     <Link className="cta type2" to={`detail/${id}`}>View More</Link>
+                    </div>
                 </div>
                 </div>
             </div>

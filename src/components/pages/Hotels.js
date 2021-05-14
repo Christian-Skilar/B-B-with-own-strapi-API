@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CardLink from "../functions/CardLink";
 import { API } from "../constants/Api";
+import Footer from "../layout/Footer";
 import bgImage from "../../img/cityskyline-fix.png";
 
 function Hotels() {
@@ -40,6 +41,7 @@ function Hotels() {
 	}
 
 	return (
+		<>
 		<div>
 			{hotels.map(function (hotel) {
 				const { id, name, img, description } = hotel;
@@ -50,6 +52,8 @@ function Hotels() {
 			<img src={bgImage} alt="city Background" className="second"/>
 		</div>
 		</div>
+		<Footer />
+		</>
 	);
 }
 

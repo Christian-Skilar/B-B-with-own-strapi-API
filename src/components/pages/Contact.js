@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { API_URL } from "../constants/Api";
+import Footer from "../layout/Footer";
 import bgImage from "../../img/cityskyline-fix.png";
 
 function Contact() {
@@ -64,10 +65,11 @@ function Contact() {
 				</form>
 
 			</div>
-				<div className="bg-image">
-					<img src={bgImage} alt="city Background"/>
-					<img src={bgImage} alt="city Background" className="second"/>
-				</div>
+			<div className="bg-image">
+				<img src={bgImage} alt="city Background"/>
+				<img src={bgImage} alt="city Background" className="second"/>
+			</div>
+			<Footer />
 		</>
   );
 }

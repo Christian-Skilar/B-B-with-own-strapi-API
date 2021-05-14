@@ -20,6 +20,32 @@
 	background-color: $dark-gray !important;
 }
 
+.logout-btn {
+	color: $light-gray;
+	font-weight: 600;
+	background: $dark-gray;
+	border: 1px solid $primal-blue;
+	border-radius: 5px;
+	text-transform: uppercase;
+	padding: 5px;
+	transition: 300ms;
+}
+
+.logout-btn:hover {
+	color: $light;
+	background: $primal-blue;
+}
+
+.login-btn a {
+	border: 1px solid $primal-blue;
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+
+.login-btn a:hover {
+	color: $light;
+	background: $primal-blue;
+}
 // ---------- NAVIGATION LINKS ---------- /
 nav {
 	width: 100%;
@@ -39,7 +65,7 @@ nav ul li a {
 	padding: 15px;
 	text-decoration: none;
 	color: $light-gray;
-	font-weight: 800;
+	font-weight: 600;
 	text-transform: uppercase;
 	margin: 0 10px;
 }
@@ -54,6 +80,18 @@ nav ul li a:hover {
 }
 
 /* stroke */
+
+nav.stroke ul {
+	padding: 0;
+}
+
+nav.stroke ul li:last-child {
+	float: right;
+	margin-top: 10px;
+	text-align: center;
+	cursor: pointer;
+}
+
 nav.stroke ul li a {
 	position: relative;
 }
@@ -75,6 +113,13 @@ nav.stroke ul li a:hover:after {
 
 //
 // MEDIA QUERIES ---------------
+
+@media only screen and (max-width: 1051px) {
+	nav ul li a {
+		padding: 15px 10px;
+		margin: 0 5px;
+	}
+}
 
 @media only screen and (max-width: 991px) {
 	.logo {

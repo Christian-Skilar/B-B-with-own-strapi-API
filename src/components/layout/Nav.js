@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Link } from "react-router-dom";
+import { clearStorage } from "../functions/Storage";
 import Navbar from "react-bootstrap/Navbar";
 import { UserContext } from "../context/UserContext";
 
@@ -21,8 +22,11 @@ function Navigation() {
                         {user &&
                         <li><a href="/admin">Admin</a></li>
                         }
+                        {user &&
+                        <li className="logout-btn" onClick={(event) => clearStorage(event)} >Log Out</li>
+                        }
                         {!user &&
-                        <li><a href="/login">Login</a></li>
+                        <li className="login-btn"><a href="/login">Login</a></li>
                         }
                     </ul>
                 </nav>

@@ -39,10 +39,10 @@ function Messages() {
                 {messages.map(function (questions) {
                 const { name, subject, mail, message, id } = questions;
                 return <div className="message-cards" key={id}>
-                            <p>From - {name}</p>
-							<p>Subject - {subject}</p>
-                            <p>Mail - {mail}</p>
-                            <p>Message - {message}</p>
+                            <p><span>Name</span> - {name}</p>
+							<p><span>Subject</span> - {subject}</p>
+                            <p><span>From</span> - {mail}</p>
+                            <p><span>Message</span> - {message}</p>
                         </div>
                     })}
             </>
