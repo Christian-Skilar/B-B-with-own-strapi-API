@@ -46,13 +46,13 @@ function ModalComponent() {
                     {errors.name && <span className="error">This field is required</span>} 
 
                     <input placeholder="Email" type="text" {...register("mail", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} />
-                    {errors.mail && <span className="error">This field is required</span>}
+                    {errors.mail && <span className="error">Use a valid email</span>}
 
                     <input placeholder="From" type="date" {...register("datefrom", { required: true })} /> 
-                    {errors.datefrom && <span className="error">This field is required</span>}
+                    {errors.datefrom && <span className="error">Please enter date of arrival</span>}
 
                     <input placeholder="To" type="date" {...register("dateto", { required: true })} />
-                    {errors.dateto && <span className="error">This field is required</span>}
+                    {errors.dateto && <span className="error">Please enter date of departure</span>}
 
 					<div className="btn-container-center">
                         <button className="book-btn">Send</button>

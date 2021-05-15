@@ -42,13 +42,13 @@ function Contact() {
 							placeholder="Subject" 
 							{...register("subject", { required: true })}
 							/> 
-							{errors.subject && <span className="error">This field is required</span>}
+							{errors.subject && <span className="error">Please provide a subject</span>}
 
 					<input 	name="mail" 
 							placeholder="Email" 
 							{...register("mail", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })}
 							/>
-							{errors.email && <span className="error">Please provide a valid email address</span>}
+							{errors.mail && <span className="error">Please provide a valid email address</span>}
 
 					<textarea 	name="message" 
 								placeholder="Message" 
@@ -57,7 +57,7 @@ function Contact() {
 								cols="50" 
 								{...register("message", { required: true, minLength: 10 })}
 								/>
-								{errors.message && <span className="error">This field requires 10 + characters</span>}
+								{errors.message && <span className="error">Message requires a minimum of 10 characters</span>}
 
 					<div className="btn-container">
 					<button className="btn-1">Send</button>

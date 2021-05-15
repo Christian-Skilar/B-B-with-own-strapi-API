@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { CircleLoading } from 'react-loadingg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { API } from "../constants/Api";
 
@@ -31,9 +32,10 @@ function Search() {
   }, []);
   
   if (loading) {
-    return <div className="loading">
-          <h2>Page Is Loading...</h2>
-        </div>;
+    return  <div className="loading">
+              <CircleLoading />
+            </div>;
+
   }
   
   if (error) {

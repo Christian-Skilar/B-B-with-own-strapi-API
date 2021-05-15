@@ -87,7 +87,7 @@ function Create() {
                                         rows="6" 
                                         {...register("description", { required: true, minLength: 10 })}
                                         />
-                                        {errors.description && <span className="error">This field is requires description minimum 10 letters</span>}
+                                        {errors.description && <span className="error">Message requires a minimum of 10 characters</span>}
 
                             <input  type="file" 
                                     className="file-upload" 

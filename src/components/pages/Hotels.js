@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { CircleLoading } from 'react-loadingg';
 import CardLink from "../functions/CardLink";
 import { API } from "../constants/Api";
 import Footer from "../layout/Footer";
@@ -31,8 +32,8 @@ function Hotels() {
 	}, []);
 
 	if (loading) {
-		return <div className="loading">
-					<h2>Page Is Loading...</h2>
+		return	<div className="loading">
+					<CircleLoading />
 				</div>;
 	}
 

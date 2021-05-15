@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { CircleLoading } from 'react-loadingg';
 
 import ModalComponent from "../layout/Modal";
 import { API } from "../constants/Api";
@@ -44,8 +45,8 @@ function HotelDetail() {
 	);
 
 	if (loading) {
-		return <div className="loading">
-					<h2>Page Is Loading...</h2>
+		return 	<div className="loading">
+					<CircleLoading />
 				</div>;
 	}
 

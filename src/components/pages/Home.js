@@ -5,7 +5,7 @@ function Home() {
 
     return (
             <div className="landingPage-img">
-                    <Search />
+                <Search />
             </div>
     )
 }
