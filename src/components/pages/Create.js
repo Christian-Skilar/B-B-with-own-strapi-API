@@ -52,7 +52,7 @@ function Create() {
             <>
                 <div className="container">
                 <Link className="back-btn" to="/admin">Back</Link>
-                    <h2>Register new establisment</h2>
+                    <h1>Register new establisment</h1>
                     {error && <p>{error}</p>}
 
                         <form onSubmit={handleSubmit(onSubmit)}>
