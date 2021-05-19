@@ -13,7 +13,7 @@ function Hotels() {
 	useEffect(function () {
 		async function fetchData() {
 			try {
-				const response = await fetch(API);
+				const response = await fetch(API + "/hotels");
 
 				if (response.ok) {
 					const json = await response.json();

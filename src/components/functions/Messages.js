@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { API_URL } from "../constants/Api";
+import { API } from "../constants/Api";
 
 function Messages() {
 
@@ -10,7 +10,7 @@ function Messages() {
     useEffect(function () {
 		async function fetchData() {
 			try {
-				const response = await fetch(API_URL + "/messages");
+				const response = await fetch(API + "/messages");
 				const json = await response.json();
 				console.log(json);
 				setMessages(json);

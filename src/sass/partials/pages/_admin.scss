@@ -29,15 +29,12 @@
 	}
 }
 
-.h1-admin {
-	margin-bottom: 100px;
-}
-
 .admin-btn {
 	@include buttons;
 	border-radius: 5px;
 	padding: 5px 50px;
 	margin: 20px;
+	margin-top: 100px !important;
 	transition: 300ms;
 
 	&::after {
@@ -50,6 +47,10 @@
 		bottom: 0;
 		opacity: 0;
 	}
+}
+
+.space-top {
+	margin-top: 100px;
 }
 
 //

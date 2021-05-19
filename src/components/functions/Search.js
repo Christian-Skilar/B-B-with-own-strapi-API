@@ -17,7 +17,7 @@ function Search() {
   useEffect(function () {
     async function fetchData() {
       try {
-        const response = await fetch(API);
+        const response = await fetch(API + "/hotels");
         const json = await response.json();
         console.log(json);
         sethotels(json);

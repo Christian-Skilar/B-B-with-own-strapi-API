@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { API } from "../constants/Api";
+import Heading from "../layout/Heading";
 import bgImage from "../../img/cityskyline-fix.png";
 
 function Create() {
@@ -32,7 +33,7 @@ function Create() {
         formData.append("files.img", file);
 
         try {
-            const response = await fetch (API, {
+            const response = await fetch (API + "/hotels", {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${user.jwt}`
@@ -52,13 +53,14 @@ function Create() {
             <>
                 <div className="container">
                 <Link className="back-btn" to="/admin">Back</Link>
-                    <h1>Register new establisment</h1>
+                <Heading heading="Register new establishment" />
+
                     {error && <p>{error}</p>}
 
                         <form onSubmit={handleSubmit(onSubmit)}>
                         {submitted ? <div className="success">Success! The form was submitted</div> : null}
 
-                            <input  placeholder="Name *" 
+                            <input  placeholder="Name" 
                                     name="name" 
                                     {...register("name", { required: true, minLength: 3 })}
                                     />
@@ -66,15 +68,17 @@ function Create() {
 
                             <input  placeholder="Roms"
                                     name="roms" 
-                                    {...register("roms")}
+                                    {...register("roms", { required: true })}
                                     />
+                                    {errors.roms && <span className="error">Add the establishment total bedroms</span>}
 
                             <input  placeholder="Max" 
                                     name="max"
-                                    {...register("max")}
+                                    {...register("max", { required: true })}
                                     />
+                                    {errors.max && <span className="error">Add establishments max capacity</span>}
 
-                            <input  placeholder="Price *" 
+                            <input  placeholder="Price" 
                                     name="price"
                                     type="number"
                                     {...register("price", { required: true })}
@@ -82,7 +86,7 @@ function Create() {
                                     {errors.price && <span className="error">This field is requires a price</span>}
 
                             <textarea   className="border" 
-                                        placeholder="Description *"
+                                        placeholder="Description"
                                         name="description" 
                                         rows="6" 
                                         {...register("description", { required: true, minLength: 10 })}

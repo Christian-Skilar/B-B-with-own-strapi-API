@@ -22,7 +22,7 @@ function HotelDetail() {
 		history.push("/");
 	}
 
-	const url = API + "/" + id;
+	const url = API + "/hotels/" + id;
 
 	useEffect(
 		function () {
@@ -68,25 +68,22 @@ function HotelDetail() {
 						<div>
 							<h2>{hotel.name}</h2>
 							<p>{hotel.description}</p>
-						<div className="extra-info">
-							<p>Max {hotel.max} people</p>
-							<p>Roms - {hotel.roms}</p>
-							<p>Price from {hotel.price},- Nok</p>
+								<div className="extra-info">
+									<p>Max {hotel.max} people</p>
+									<p>Roms - {hotel.roms}</p>
+									<p>Price from {hotel.price},- Nok</p>
+								</div>
 						</div>
-						</div>
-					<div>
-						<img src={imageUrl} alt={hotel.name}></img>
-					</div>
+						<div><img src={imageUrl} alt={hotel.name}></img></div>
 					</div>
 					<ModalComponent />
 				</div>
-			   		<div className="bg-image">
-						<img src={bgImage} alt="city Background"/>
-						<img src={bgImage} alt="city Background" className="second"/>
-					</div>
+			   	<div className="bg-image">
+					<img src={bgImage} alt="city Background"/>
+					<img src={bgImage} alt="city Background" className="second"/>
+				</div>
 			</>
 	);
 }
-
 
 export default HotelDetail;

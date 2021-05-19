@@ -3,6 +3,8 @@ import {useState, useContext, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { saveToken, saveUser } from "../functions/Storage";
+import Heading from "../layout/Heading";
+import { API } from "../constants/Api";
 import bgImage from "../../img/cityskyline-fix.png";
 
 function Login () {
@@ -25,7 +27,7 @@ function Login () {
         event.preventDefault()
 
         try {
-            const response = await fetch('https://powerful-tundra-28507.herokuapp.com/auth/local', {
+            const response = await fetch(API + "/auth/local", {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
@@ -61,7 +63,7 @@ function Login () {
     return (
         <>
             <div className="form-bg">
-            <h1>Login Page</h1>
+            <Heading heading="Login" />
 
                 <form onSubmit={handleSubmit}>
                     <input

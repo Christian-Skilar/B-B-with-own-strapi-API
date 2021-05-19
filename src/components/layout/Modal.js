@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Modal from "react-bootstrap/Modal"
 import Button from "react-bootstrap/Button"
-import { API_URL } from "../constants/Api";
+import { API } from "../constants/Api";
 
 
 function ModalComponent() {
@@ -14,7 +14,7 @@ function ModalComponent() {
         console.log(data);
 		setSubmitted(true);
 
-            const response = await fetch (API_URL + "/enquiries", {
+            const response = await fetch (API + "/enquiries", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -30,38 +30,35 @@ function ModalComponent() {
   
 
     return (
-
         <>
-        <Button className="btn-1" onClick={handleShow}>Book</Button>
-  
-        <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Book hotel Now</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                {submitted ? <div className="success">Success! The form was submitted</div> : null}
+            <Button className="btn-1" onClick={handleShow}>Book</Button>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Book hotel Now</Modal.Title>
+                    </Modal.Header>
+                        <Modal.Body>
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                            {submitted ? <div className="success">Success! The form was submitted</div> : null}
 
-                    <input placeholder="Name" type="text" {...register("name", { required: true, minLength: 3 })} />
-                    {errors.name && <span className="error">This field is required</span>} 
+                                <input placeholder="Name" type="text" {...register("name", { required: true, minLength: 3 })} />
+                                {errors.name && <span className="error">This field is required</span>} 
 
-                    <input placeholder="Email" type="text" {...register("mail", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} />
-                    {errors.mail && <span className="error">Use a valid email</span>}
+                                <input placeholder="Email" type="text" {...register("mail", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} />
+                                {errors.mail && <span className="error">Use a valid email</span>}
 
-                    <input placeholder="From" type="date" {...register("datefrom", { required: true })} /> 
-                    {errors.datefrom && <span className="error">Please enter date of arrival</span>}
+                                <input placeholder="From" type="date" {...register("datefrom", { required: true })} /> 
+                                {errors.datefrom && <span className="error">Please enter date of arrival</span>}
 
-                    <input placeholder="To" type="date" {...register("dateto", { required: true })} />
-                    {errors.dateto && <span className="error">Please enter date of departure</span>}
+                                <input placeholder="To" type="date" {...register("dateto", { required: true })} />
+                                {errors.dateto && <span className="error">Please enter date of departure</span>}
 
-					<div className="btn-container-center">
-                        <button className="book-btn">Send</button>
-					</div>
-                </form>
-            </Modal.Body>
-        </Modal>
-      </>
-
+                                <div className="btn-container-center">
+                                    <button className="book-btn">Send</button>
+                                </div>
+                            </form>
+                        </Modal.Body>
+                </Modal>
+        </>
     )
 }
 

@@ -1,7 +1,8 @@
 
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { API_URL } from "../constants/Api";
+import { API } from "../constants/Api";
+import Heading from "../layout/Heading";
 import Footer from "../layout/Footer";
 import bgImage from "../../img/cityskyline-fix.png";
 
@@ -15,7 +16,7 @@ function Contact() {
 		setSubmitted(true);
 
 
-            const response = await fetch (API_URL + "/messages", {
+            const response = await fetch (API + "/messages", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -28,7 +29,7 @@ function Contact() {
   return (
 	  <>
 		<div className="form-bg">
-			<h1>Contact us</h1>
+		<Heading heading="Contact Us" />
 				<form onSubmit={handleSubmit(onSubmit)}>
 					{submitted ? <div className="success">Success! The form was submitted</div> : null}
 	
